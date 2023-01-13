@@ -1,0 +1,7 @@
+<Project>
+	<PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <AvaloniaVersion>11.0.0-preview4</AvaloniaVersion>
+    <XamlNameVersion>1.5.1</XamlNameVersion>
+  </PropertyGroup>
+</Project>
