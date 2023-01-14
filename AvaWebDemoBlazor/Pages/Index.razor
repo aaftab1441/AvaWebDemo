@@ -3,6 +3,7 @@
 @using Avalonia;
 @using Avalonia.Controls.ApplicationLifetimes;
 @using Avalonia.Web.Blazor
+@using Avalonia.Web
 
 <AvaloniaView />
 
@@ -22,11 +23,20 @@
         {
             _isLoaded = true;
 
+
+
             var builder = AppBuilder.Configure<AvaWebDemoApp.App>();
-            builder.UseBlazor();
+            // builder.UseBlazor(); because we need relative pathResolver
+            builder.UseBrowser();
+            builder.With(new BrowserPlatformOptions
+                {
+                    FrameworkAssetPathResolver = new(filePath => $"../_content/Avalonia.Web.Blazor/{filePath}")
+                });
             // .With(new SkiaOptions { CustomGpuFactory = null }) // uncomment to disable GPU/GL rendering
             builder.SetupWithSingleViewLifetime();
         }
+
+
 
         base.OnParametersSet();
     }
