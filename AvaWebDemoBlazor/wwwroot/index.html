@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>WebDemoBlazor</title>
     <base href="/" />
-    <link href='./favicon.ico' rel='shortcut icon' type='image/x-icon' />
-    <link href="./css/app.css" rel="stylesheet" />
+    <link href='https://aaftab1441.github.io/AvaWebDemo/favicon.ico' rel='shortcut icon' type='image/x-icon' />
+    <link href="https://aaftab1441.github.io/AvaWebDemo/css/app.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    
+
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
         (function (l) {
@@ -42,19 +42,15 @@
             }
         }(window.location))
     </script>
-    <!-- End Single Page Apps for GitHub Pages -->    
-    <script src="./decode.min.js"></script>
-    <script src="./_framework/blazor.webassembly.js" autostart="false"></script>
+    <!-- End Single Page Apps for GitHub Pages -->
+    <script src="https://aaftab1441.github.io/AvaWebDemo/decode.min.js"></script>
+    <script src="https://aaftab1441.github.io/AvaWebDemo/_framework/blazor.webassembly.js" autostart="false"></script>
     <script>
         Blazor.start({
             loadBootResource: function (type, name, defaultUri, integrity) {
                 if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
-                    let baseUrl = '';
-                    if (typeof (defaultUrl) !== "undefined") {
-                        baseUrl = defaultUrl;
-                    }
                     return (async function () {
-                        const response = await fetch(baseUrl + defaultUri + '.br', { cache: 'no-cache' });
+                        const response = await fetch("https://aaftab1441.github.io/AvaWebDemo/" + defaultUri + '.br', { cache: 'no-cache' });
                         if (!response.ok) {
                             throw new Error(response.statusText);
                         }
