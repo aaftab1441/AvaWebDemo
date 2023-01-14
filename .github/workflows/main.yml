@@ -1,5 +1,7 @@
 name: 'Publish application'
-on: push
+on:
+  push:
+    branches: [ main ]
 
 jobs:
   build:
@@ -22,12 +24,6 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
-          
-      - name: install .NET WASM Build Tools
-        run: dotnet workload install wasm-tools
-        
-      - name: install .NET WASM Build Experimental
-        run: dotnet workload install wasm-experimental
         
       - name: project publish
         run: dotnet publish ${{ env.PROJECT_PATH }} -p:GHPages=true -c Release -o ${{ env.PUBLISH_FOLDER }} -nologo
