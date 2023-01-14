@@ -36,7 +36,7 @@ jobs:
         uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
         with:
          html_path: ${{ env.PUBLISH_WWWROOT }}/index.html
-         base_href: /${{ github.event.repository.name }}
+         base_href: /${{ github.event.repository.name }}/
 
       - name: copy index.html to 404.html
         run: cp ${{ env.PUBLISH_WWWROOT }}/index.html ${{ env.PUBLISH_WWWROOT }}/404.html
