@@ -37,13 +37,12 @@ jobs:
         with:
          html_path: ${{ env.PUBLISH_WWWROOT }}/index.html
          base_href: /${{ github.event.repository.name }}/
-        
-      - name: add .nojekyll file
-        run: touch ${{ env.PUBLISH_WWWROOT }}/.nojekyll
 
       - name: deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v1.5.1
         with:
-          github_token: ${{ secrets.AVAPUBLISH_TOKEN }}
-          publish_dir: ${{ env.PUBLISH_WWWROOT }}
-          force_orphan: true
+          target_branch: gh-pages
+          build_dir: ${{ env.PUBLISH_WWWROOT }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.AVAPUBLISH_TOKEN }}
