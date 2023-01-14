@@ -1,4 +1,3 @@
-﻿
 <!DOCTYPE html>
 <html>
 
@@ -9,20 +8,23 @@
     <base href="/AvaWebDemo/" />
     <link href='favicon.ico' rel='shortcut icon' type='image/x-icon' />
     <link href="css/app.css" rel="stylesheet" />
+</head>
 
+<body>
+    <div id="app">
+        <div id="splash">
+            <h2>WebDemoBlazor preflight</h2>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    
     <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
-        // Single Page Apps for GitHub Pages
-        // https://github.com/rafrex/spa-github-pages
-        // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-        // ----------------------------------------------------------------------
-        // This script checks to see if a redirect is present in the query string
-        // and converts it back into the correct url and adds it to the
-        // browser's history using window.history.replaceState(...),
-        // which won't cause the browser to attempt to load the new url.
-        // When the single page app is loaded further down in this file,
-        // the correct url will be waiting in the browser's history for
-        // the single page app to route accordingly.
         (function (l) {
             if (l.search) {
                 var q = {};
@@ -40,37 +42,26 @@
             }
         }(window.location))
     </script>
-    <!-- End Single Page Apps for GitHub Pages -->
-</head>
-
-<body>
-    <app>Loading...</app>
-
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
+    <!-- End Single Page Apps for GitHub Pages -->    
     <script src="decode.min.js"></script>
     <script src="_framework/blazor.webassembly.js" autostart="false"></script>
     <script>
         Blazor.start({
             loadBootResource: function (type, name, defaultUri, integrity) {
-                // For framework resources, use the precompressed .br files for faster downloads
-                // This is needed only because GitHub pages doesn't natively support Brotli (or even gzip for .dll files)
-                if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
-                    return (async function () {
-                        const response = await fetch(defaultUri + '.br', { cache: 'no-cache' });
-                        if (!response.ok) {
-                            throw new Error(response.statusText);
-                        }
-                        const originalResponseBuffer = await response.arrayBuffer();
-                        const originalResponseArray = new Int8Array(originalResponseBuffer);
-                        const decompressedResponseArray = BrotliDecode(originalResponseArray);
-                        const contentType = type === 'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
-                        return new Response(decompressedResponseArray, { headers: { 'content-type': contentType } });
-                    })();
+            if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
+                return (async function () {
+                const response = await fetch(defaultUri + '.br', { cache: 'no-cache' });
+                if (!response.ok) {
+                    throw new Error(response.statusText);
                 }
+                const originalResponseBuffer = await response.arrayBuffer();
+                const originalResponseArray = new Int8Array(originalResponseBuffer);
+                const decompressedResponseArray = BrotliDecode(originalResponseArray);
+                const contentType = type === 'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
+                return new Response(decompressedResponseArray, 
+                    { headers: { 'content-type': contentType } });
+                })();
+            }
             }
         });
     </script>

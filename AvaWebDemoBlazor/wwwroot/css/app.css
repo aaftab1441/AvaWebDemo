@@ -31,7 +31,7 @@ a {
     }
 
 
-app, .page {
+#app, .page {
     height: 100%;
     background: #171C2C;
     color: white;

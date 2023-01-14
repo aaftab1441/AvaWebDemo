@@ -31,16 +31,16 @@
     <WasmEnableSIMD>false</WasmEnableSIMD>
   </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-	    <Optimize>true</Optimize>
-	    <EmccCompileOptimizationFlag>-O3</EmccCompileOptimizationFlag>
-	    <EmccLinkOptimizationFlag>-O3</EmccLinkOptimizationFlag>
-	    <RunAOTCompilation>true</RunAOTCompilation>
-	    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
-	    <UseSystemResourceKeys>false</UseSystemResourceKeys>
-	    <WasmEnableSIMD>true</WasmEnableSIMD>
-	    <BlazorEnableCompression>true</BlazorEnableCompression>
-    </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <Optimize>true</Optimize>
+    <EmccCompileOptimizationFlag>-O3</EmccCompileOptimizationFlag>
+    <EmccLinkOptimizationFlag>-O3</EmccLinkOptimizationFlag>
+    <RunAOTCompilation>true</RunAOTCompilation>
+    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+    <UseSystemResourceKeys>false</UseSystemResourceKeys>
+    <WasmEnableSIMD>true</WasmEnableSIMD>
+	  <BlazorEnableCompression>true</BlazorEnableCompression>
+  </PropertyGroup>
 
 
   <ItemGroup>
@@ -57,11 +57,11 @@
   <ItemGroup>
     <ProjectReference Include="..\AvaWebDemoApp\AvaWebDemoApp.csproj" />
   </ItemGroup>
-
-
-  <ItemGroup>
-    <WasmExtraFilesToDeploy Remove="wwwroot\404.html" />
-  </ItemGroup>
+	
+	
+	<ItemGroup>
+		<WasmExtraFilesToDeploy Remove="wwwroot\404.html" />
+	</ItemGroup>
 
 </Project>
 
