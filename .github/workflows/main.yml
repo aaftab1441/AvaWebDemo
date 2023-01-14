@@ -30,19 +30,20 @@ jobs:
         run: dotnet workload install wasm-experimental
         
       - name: project publish
-        run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o ${{ env.PUBLISH_FOLDER }}
+        run: dotnet publish ${{ env.PROJECT_PATH }} -p:GHPages=true -c Release -o ${{ env.PUBLISH_FOLDER }} -nologo
 
       - name: rewrite base href
         uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
         with:
          html_path: ${{ env.PUBLISH_WWWROOT }}/index.html
          base_href: /${{ github.event.repository.name }}/
+        
+      - name: add .nojekyll file
+        run: touch ${{ env.PUBLISH_WWWROOT }}/.nojekyll
 
       - name: deploy 🚀
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v1.5.1
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          target_branch: gh-pages
-          build_dir: ${{ env.PUBLISH_WWWROOT }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.AVAPUBLISH_TOKEN }}
+          github_token: ${{ secrets.AVAPUBLISH_TOKEN }}
+          publish_dir: ${{ env.PUBLISH_WWWROOT }}
+          force_orphan: true
