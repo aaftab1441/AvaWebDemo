@@ -18,7 +18,7 @@ public class Program
     public static WebAssemblyHostBuilder CreateHostBuilder(string[] args)
     {
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<AvaWebDemoBlazor.App>("app");
+            builder.RootComponents.Add<AvaWebDemoBlazor.App>("#app");
 
         builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri("/AvaWebDemo/") });
 
