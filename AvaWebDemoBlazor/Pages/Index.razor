@@ -1,0 +1,34 @@
+﻿@page "/"
+
+@using Avalonia;
+@using Avalonia.Controls.ApplicationLifetimes;
+@using Avalonia.Web.Blazor
+
+<AvaloniaView />
+
+@code
+{
+    #region vars
+
+    bool _isLoaded = default;
+
+    #endregion
+
+    #region void - OnParametersSet
+
+    protected override void OnParametersSet()
+    {
+        if (!_isLoaded)
+        {
+            _isLoaded = true;
+
+            var builder = AppBuilder.Configure<AvaWebDemoApp.App>();
+            builder.UseBlazor();
+            // .With(new SkiaOptions { CustomGpuFactory = null }) // uncomment to disable GPU/GL rendering
+            builder.SetupWithSingleViewLifetime();
+        }
+
+        base.OnParametersSet();
+    }
+    #endregion
+}

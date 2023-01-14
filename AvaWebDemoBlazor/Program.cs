@@ -1,4 +1,4 @@
-using AvaWebDemo;
+using AvaWebDemoBlazor;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
