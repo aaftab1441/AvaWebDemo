@@ -39,6 +39,7 @@
     <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
     <UseSystemResourceKeys>false</UseSystemResourceKeys>
     <WasmEnableSIMD>true</WasmEnableSIMD>
+    <BlazorEnableCompression>false</BlazorEnableCompression>
   </PropertyGroup>
 
 
