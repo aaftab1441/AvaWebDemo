@@ -58,5 +58,10 @@
     <ProjectReference Include="..\AvaWebDemoApp\AvaWebDemoApp.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <WasmExtraFilesToDeploy Remove="wwwroot\404.html" />
+  </ItemGroup>
+
 </Project>
 
