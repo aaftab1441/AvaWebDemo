@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaWebDemo", "AvaWebDemo\AvaWebDemo.csproj", "{ADC6E425-31CE-4AAA-9DF3-A7D708BF1D00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaWebDemoBlazor", "AvaWebDemo\AvaWebDemoBlazor.csproj", "{ADC6E425-31CE-4AAA-9DF3-A7D708BF1D00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
