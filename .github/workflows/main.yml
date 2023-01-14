@@ -41,8 +41,9 @@ jobs:
         run: touch ${{ env.PUBLISH_WWWROOT }}/.nojekyll
 
       - name: deploy 🚀
-        uses: peaceiris/actions-gh-pages@v3
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v1.5.1
         with:
           github_token: ${{ secrets.AVAPUBLISH_TOKEN }}
-          publish_dir: ${{ env.PUBLISH_WWWROOT }}
+          target_branch: gh-pages
           force_orphan: true
